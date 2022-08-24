@@ -24,7 +24,11 @@ function rpsls(player1, player2){
     player2 = player2.toLowerCase();
     if ( player1 === player2 ) {
         return 'Draw!'
-    } else if (  (player1 === 'scissors' && player2 === 'paper' ) ||  ( player1 ==='paper' && player2 === 'rock')  ||  ( player1 === 'rock' && player2 === 'lizard' ) || (player1 === 'lizard' && player2 === 'spock' ) || ( player1 === 'spock' && player2 === 'scissors' ) || ( player1 === 'scissors' && player2 === 'lizard' ) ||( player1 === 'lizard' && player2 === 'paper' ) || ( player1 === 'paper' && player2 === 'spock' ) || ( player1 === 'spock' && player2 === 'rock' ) || ( player1 === 'rock' && player2 === 'scissors' ) ) {
+    } else if (  (player1 === 'scissors' && player2 === 'paper' ) ||  ( player1 ==='paper' && player2 === 'rock')  ||  
+    ( player1 === 'rock' && player2 === 'lizard' ) || (player1 === 'lizard' && player2 === 'spock' ) || 
+    ( player1 === 'spock' && player2 === 'scissors' ) || ( player1 === 'scissors' && player2 === 'lizard' ) || 
+    ( player1 === 'lizard' && player2 === 'paper' ) || ( player1 === 'paper' && player2 === 'spock' ) || 
+    ( player1 === 'spock' && player2 === 'rock' ) || ( player1 === 'rock' && player2 === 'scissors' ) ) {
         return 'Player 1 Won!'
     } else {
         return 'Player 2 Won!';
