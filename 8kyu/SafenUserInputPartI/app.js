@@ -9,20 +9,58 @@ Your mission is to implement a function that converts the following potentially 
 & --> &amp;
 */
 
+// Using replaceAll(); **************************************** This solution only works in N.15 or later 
 function htmlspecialchars(formData) {
     let str = formData.toString();
     str = str.toString();
     if (str.length === 0) {
         return str
     }
-    str = str.replaceAll('&', '&amp;');
-    str = str.replaceAll('<', '&lt;');
-    str = str.replaceAll('>', '&gt;');
-    str = str.replaceAll('"', '&quot;');
+    str = str.replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
     return str;
   }
+// Run Tests
+console.log( (htmlspecialchars('<h2>Hello World</h2>') === '&lt;h2&gt;Hello World&lt;/h2&gt;') );
+console.log( (htmlspecialchars('How was "The Matrix"?  Did you like it?') === 'How was &quot;The Matrix&quot;?  Did you like it?') );
+console.log( (htmlspecialchars('Hello, how would you & I fare?') === 'Hello, how would you &amp; I fare?') );
+console.log( (htmlspecialchars('<script>alert(\'Website Hacked!\');</script>') === '&lt;script&gt;alert(\'Website Hacked!\');&lt;/script&gt;') );
+console.log( (htmlspecialchars('<h2> & Hello &  World & </h2>') === ('&lt;h2&gt; &amp; Hello &amp;  World &amp; &lt;/h2&gt;') ) );
+console.log();
 
-  console.log( (htmlspecialchars('<h2>Hello World</h2>') === '&lt;h2&gt;Hello World&lt;/h2&gt;') );
-  console.log( (htmlspecialchars('How was "The Matrix"?  Did you like it?') === 'How was &quot;The Matrix&quot;?  Did you like it?') );
-  console.log( (htmlspecialchars('Hello, how would you & I fare?') === 'Hello, how would you &amp; I fare?') );
-  console.log( (htmlspecialchars('<script>alert(\'Website Hacked!\');</script>') === '&lt;script&gt;alert(\'Website Hacked!\');&lt;/script&gt;') );
+// Loop method *************************************************** only works on one '&' character
+function htmlSpec2(formData) {
+    formData = formData.replace('&', '&amp;');
+    for(let i = 0; i < formData.length; i++) {
+        formData = formData.replace('<','&lt;').replace('>','&gt;').replace('"','&quot;');
+    }
+    return formData;
+}
+
+// Run Tests
+console.log( (htmlSpec2('<h2>Hello World</h2>') === '&lt;h2&gt;Hello World&lt;/h2&gt;') );
+console.log( (htmlSpec2('How was "The Matrix"?  Did you like it?') === 'How was &quot;The Matrix&quot;?  Did you like it?') );
+console.log( (htmlSpec2('Hello, how would you & I fare?') === 'Hello, how would you &amp; I fare?') );
+console.log( (htmlSpec2('<script>alert(\'Website Hacked!\');</script>') === '&lt;script&gt;alert(\'Website Hacked!\');&lt;/script&gt;') );
+console.log( (htmlSpec2('<h2> & Hello &  World & </h2>') === ('&lt;h2&gt; &amp; Hello &amp;  World &amp; &lt;/h2&gt;') ) );
+console.log();
+
+// One line method - Sort of ****************************************************************************
+function htmlSpecOneLine(formData) {
+    formData = formData.split('&').join('&amp;');
+    return formData.split('<').join('&lt;').split('>').join('&gt;').split('"').join('&quot;');
+}
+
+// Run Tests
+console.log( (htmlSpecOneLine('<h2>Hello World</h2>') === '&lt;h2&gt;Hello World&lt;/h2&gt;') );
+console.log( (htmlSpecOneLine('How was "The Matrix"?  Did you like it?') === 'How was &quot;The Matrix&quot;?  Did you like it?') );
+console.log( (htmlSpecOneLine('Hello, how would you & I fare?') === 'Hello, how would you &amp; I fare?') );
+console.log( (htmlSpecOneLine('<script>alert(\'Website Hacked!\');</script>') === '&lt;script&gt;alert(\'Website Hacked!\');&lt;/script&gt;') );
+console.log( (htmlSpecOneLine('<h2> & Hello &  World & </h2>') === ('&lt;h2&gt; &amp; Hello &amp;  World &amp; &lt;/h2&gt;') ) );
+
+// console.log();
+// let str = 'ATATATATATAT';
+// console.log(str.split('A'));
+// console.log(str.split('A').join('U'));
