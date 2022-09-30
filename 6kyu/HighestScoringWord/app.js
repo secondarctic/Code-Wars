@@ -1,4 +1,6 @@
-/*
+// 6 Kyu ***********************/
+// Highest Scoring Word
+/********************************
 Description:
 
 Given a string of words, you need to find the highest scoring word.
@@ -12,17 +14,21 @@ If two words score the same, return the word that appears earliest in the origin
 All letters will be lowercase and all inputs will be valid.
 */
 
-
-
 function high(x){
-    //return x.split(' ').sort((a, b) => a < b ? 1 : 1).sort((a, b) => a.length < b.length ? 1 : -1);
-    let arr = x.split(' ');
+    let score = {
+        a: 1, b: 2, c: 3, d: 4, e: 5, 
+        f: 6, g: 7, h: 8, i: 9, j: 10,
+        k: 11, l: 12, m: 13, n: 14, o: 15,
+        p: 16, q: 17, r: 18, s: 19, t: 20,
+        u: 21, v: 22, w: 23, x: 24, y: 25, z: 26,
+    }
+    let arr = x.toLowerCase().split(' ');
     let sum = 0;
     let result = 0;
     let counter = 0;
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr[i].length; j++) {
-            sum += arr[i].charCodeAt(j);
+            sum += score[arr[i][j]];
         }
         if (sum > result) {
             result = sum;
