@@ -1,5 +1,5 @@
 /* 5 kyu *****************************/
-/* Extract the domain name form a URL*/
+/* Extract the domain name from a URL*/
 /*
 Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
 
@@ -10,9 +10,9 @@ Write a function that when given a URL as a string, parses out just the domain n
 
 // PREP
 
-// Paramters: url in the form of a String.  May start with https://, http://, or www. Length indeterminate. Domain will vary.
+// Parameters: url in the form of a String.  May start with https://, http://, or www. Length indeterminate. Domain will vary.
 
-// Rreturns: return a String of the url in the case it was provided, but only as the given domain name. Remove anything before or after that domain name (e.g. remove https://, www, ., com, etc.)
+// Returns: return a String of the url in the case it was provided, but only as the given domain name. Remove anything before or after that domain name (e.g. remove https://, www, ., com, etc.)
 
 // Examples:
 /* url = http://google.com -> google
@@ -22,12 +22,12 @@ Write a function that when given a URL as a string, parses out just the domain n
  * url = https://www.cnet.com -> cnet
 */
 
-// Psuedo code: 
+// Pseudo code: 
 /*
     function domainName(url) {
         // replace elements of the string that occur before the domain name that we don't need with a '.' character ('.' character will always separate domain name from remainder of url)
-        // split the string into an array using that character as the delimeter
-        // filter the array to single out the elements that have defined values, delimeter will create empty elements in array if those elements are at the start of the string
+        // split the string into an array using that character as the delimiter
+        // filter the array to single out the elements that have defined values, delimiter will create empty elements in array if those elements are at the start of the string
         // single out index 0 of the array as it should be the domain name
         // return index 0 of resulting filtered array
     }
