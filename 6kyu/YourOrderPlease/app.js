@@ -29,45 +29,40 @@ Examples
 /* 
     function order(str) {
         // split string into array for easier searching of elements and easier sorting
-        // locate, & indentify number in each word
-        // sort elements in ascending order
+        // split each word into an array of individual letters 
+        // locate, & indentify the number in each word
+        // assign the position of that element by it's number 'ke' in the 'sorted' array
         // join elements back into string
         // return result
     }
 */ 
 
 function order(words){
-    // split string into array of words
+    // split string into an array of words
     let arr = words.split(' '); 
     // create placeholder for sorted array
     let sortedArr = []; 
     // outer loop iterates through each word in the array
     for (let i = 0; i < arr.length; i++) {
         let letterArr = arr[i].split('');
-        // inner loop iterates through each letter of each word
-        for (let j = 0 ; j < letterArr.length; j++){
-            if (String(i) == letterArr[j]) {
-                sortedArr.push(arr[i]);
+        // inner loop iterates through counter that coresponds to number 'keys' within the words of the array and .includes() checks to see if the word matches the counter
+        for (let j = 1; j <= arr.length; j++){
+            if (letterArr.includes(String(j))) { 
+                // set the word's position in the sorted array relative to its counter
+                sortedArr[j] = arr[i]; 
             }
         }
     }
+    // since our inner counter starts with '1' to match the 'keys' in our words we start with an emtpy element at index 0
+    // shift removes that first, empty element
+    sortedArr.shift();
+    // join our array back into a string and return
     return sortedArr.join(' ');
 }
 
 // Run Tests
 console.log(order('skie4s b3lue und2er Dri1ving'));
-//console.log(order('visi4t I1 t3o Par5is wa2nt'));
-// console.log(order(''));
-// console.log(order(''));
-// console.log(order(''));
-
-// console.log();
-// let arroyo = ['two', '2', 2, '3'];
-// console.log(arroyo.includes('two'), `: array includes ${arroyo[0]}`);
-// console.log(arroyo.includes('2'), `: array includes ${arroyo[1]}`);
-// console.log(arroyo.includes(2), `: array includes ${arroyo[2]}`);
-// console.log(arroyo.includes(String(3)), `: array includes ${arroyo[3]}`);
-
-// for(let i = 0; i < 5; i++) {
-//     console.log(String(i));
-// }
+console.log(order('visi4t I1 t3o Par5is wa2nt'));
+console.log(order('is2 Thi1s T4est 3a'));
+console.log(order('4of Fo1r pe6ople g3ood th5e the2'));
+console.log(order(''));
