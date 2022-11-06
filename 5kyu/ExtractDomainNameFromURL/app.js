@@ -35,10 +35,12 @@ Write a function that when given a URL as a string, parses out just the domain n
 
 
 function domainName(url){
-    let str = url.replace('http://', '.').replace('https://', '.').replace('www.', '.').replace('/', '.');
-    let arr = str.split('.');
-    arr = arr.filter(e => e);
-    return arr[0]
+    // let str = url.replace('http://', '.').replace('https://', '.').replace('www.', '.').replace('/', '.');
+    // let arr = str.split('.');
+    // arr = arr.filter(e => e);
+    // return arr[0]
+    let str = url.replace('http://', ' ').replace('https://', ' ').replace('www.', ' ').replace('/', ' ').replace('.', ' ');
+    return str.split(' ').filter(e => e)[0];
 }
 
 // Run Tests
