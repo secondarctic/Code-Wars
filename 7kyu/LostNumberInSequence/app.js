@@ -34,7 +34,7 @@ Note: N may be 1 or less (in the latter case, the first array will be []).
     }
 */
 
-
+// Method 1 ****************************/ 
 function findDeletedNumber(arr, mixArr) {
     // if (arr.length === 0) {
     //     return 0;
@@ -53,9 +53,43 @@ function findDeletedNumber(arr, mixArr) {
         } return result[0];
     }
 }
+
+// Method 2 ****************************/ 
+function findDeletedNumberTwo(arr, mixArr) {
+    // if (arr.length === mixArr.length) {
+    //     return 0; 
+    // } else {
+    //    let result = arr.filter(e => mixArr.indexOf(e) === -1);
+    //    return result[0];
+    // } 
+    return arr.length === mixArr.length ? 0 : arr.filter(e => mixArr.indexOf(e) === -1)[0];
+}
+
+// Method 3 ****************************/ 
+function findDeletedNumberThree(arr, mixArr) {
+    return arr.length === mixArr.length ? 0 : (arr.reduce((acc, c) => acc + c , 0)) - (mixArr.reduce((acc, c) => acc + c, 0));
+}
+
 // Run Tests
+/* Method 1 */
 console.log(findDeletedNumber([], []), 0);
 console.log(findDeletedNumber([1,2,3,4,5], [1,2,3,4,5]), 0);
 console.log(findDeletedNumber([1,2,3,4,5], [3,4,1,5]), 2);
 console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5);
 console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0);
+console.log();
+
+/* Method 2 */
+console.log(findDeletedNumberTwo([], []), 0);
+console.log(findDeletedNumberTwo([1,2,3,4,5], [1,2,3,4,5]), 0);
+console.log(findDeletedNumberTwo([1,2,3,4,5], [3,4,1,5]), 2);
+console.log(findDeletedNumberTwo([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5);
+console.log(findDeletedNumberTwo([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0);
+console.log();
+
+/* Method 3 */
+console.log(findDeletedNumberThree([], []), 0);
+console.log(findDeletedNumberThree([1,2,3,4,5], [1,2,3,4,5]), 0);
+console.log(findDeletedNumberThree([1,2,3,4,5], [3,4,1,5]), 2);
+console.log(findDeletedNumberThree([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), 5);
+console.log(findDeletedNumberThree([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), 0);
