@@ -32,7 +32,7 @@ gimme([5, 10, 14]) => 1
 /*
     function tripletz(arr) {
         // need to sort the array without mutating the orignal, e.g. make a sorted copy via map (arrays are copied by their reference so we need to use a map to copy the values of the given array into the new array)
-        // need the pull value of the middle element (that will be the middle num, once sorted numerically)
+        // need to pull value of the middle element (that will be the middle num, once sorted numerically)
         // need to find the indexOf that value in the original array
         // return that numerical index
     }
