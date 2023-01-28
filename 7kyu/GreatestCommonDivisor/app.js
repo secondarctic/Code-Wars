@@ -7,9 +7,9 @@ The inputs x and y are always greater or equal to 1, so the greatest common divi
 
 // Solution w/out recursion - will time out processing larger numbers if you don't remove smallest integers
 function mygcd(x, y){
-    let max = Math.max(x, y);
+    let min = Math.min(x, y);
     let arr = [];
-    for (let i = max; i >= 1; i--) {
+    for (let i = min; i >= 1; i--) {
         if (x % i === 0 && y % i === 0) {
             arr.push(i)
         }
@@ -22,3 +22,4 @@ console.log(mygcd(30, 12), 6);
 console.log(mygcd(8, 9), 1);
 console.log(mygcd(1, 1), 1);
 console.log(mygcd(27, 135), 27);
+console.log(mygcd(147503391, 5254914));
