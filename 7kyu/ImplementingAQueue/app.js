@@ -20,22 +20,36 @@ You can use the built in push or unshift functions in order to add items to the 
 
 var Queue = function() {
     // implement your Queue constructor here
+    this.arr = [];
 };
   
 Queue.prototype.enqueue = function(item) {
     // add item to the queue
-    this.push(item);
+    this.arr.push(item);
 };
   
 Queue.prototype.dequeue = function() {
     // remove item from the front of the queue and return its value
-    let result = this.shift();
-    return result;
+    // let result = this.shift();
+    // return result;
+    return this.arr.shift();
 };
   
 Queue.prototype.size = function() {
     // return number of items in queue so far
-    return this.length;
+    return this.arr.length;
 };
 
+let queue = new Queue;
+
 // Run Tests
+console.log(queue);
+queue.enqueue(1);
+console.log(queue);
+console.log(queue.size());
+queue.enqueue(2);
+queue.enqueue(3);
+queue.enqueue(4);
+console.log(queue);
+queue.dequeue();
+console.log(queue);
